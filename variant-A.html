@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Светлана Цыро</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2C2D27;
+    --cream:#FCF7E5;
+    --paper:#FDFDF9;
+    --terra:#BE622B;
+    --amber:#DE9232;
+    --yellow:#F2C572;
+    --olive:#88A620;
+    --khaki:#A69752;
+    --brown:#1C140E;
+    --line:rgba(44,45,39,0.16);
+    --line-soft:rgba(44,45,39,0.08);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* ---------- shared type roles ---------- */
+  .label{
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:.72rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--terra);
+  }
+  .label--muted{color:var(--khaki);}
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    text-transform:uppercase;
+    line-height:1.02;
+    letter-spacing:.005em;
+    color:var(--ink);
+  }
+  .sub{
+    font-family:'Montserrat',sans-serif;
+    font-weight:400;
+    font-size:1.08rem;
+    line-height:1.65;
+    color:rgba(44,45,39,0.82);
+  }
+  .body{
+    font-family:'Montserrat',sans-serif;
+    font-weight:400;
+    font-size:.98rem;
+    line-height:1.7;
+    color:rgba(44,45,39,0.78);
+  }
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .rule{height:1px;background:var(--line);border:0;}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(252,247,229,0.9);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav__inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:78px;
+  }
+  .brand{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:1.02rem;
+  }
+  .nav__links{
+    display:flex;
+    gap:34px;
+    list-style:none;
+  }
+  .nav__links a{
+    font-size:.82rem;
+    font-weight:500;
+    letter-spacing:.02em;
+    color:rgba(44,45,39,0.72);
+    position:relative;
+    padding-bottom:3px;
+    transition:color .25s;
+  }
+  .nav__links a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--terra);
+    transition:width .3s ease;
+  }
+  .nav__links a:hover{color:var(--ink);}
+  .nav__links a:hover::after{width:100%;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:.8rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:12px 24px;
+    border:1px solid var(--ink);
+    border-radius:2px;
+    background:var(--ink);
+    color:var(--cream);
+    transition:all .28s ease;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--terra);border-color:var(--terra);}
+  .btn--ghost{
+    background:transparent;
+    color:var(--ink);
+  }
+  .btn--ghost:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+  .nav .btn{padding:10px 22px;}
+  .nav__toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px;}
+  .nav__toggle span{display:block;width:24px;height:2px;background:var(--ink);transition:.3s;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:70px 0 90px;position:relative;}
+  .hero__meta{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:38px;
+  }
+  .hero__meta .idx{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:.85rem;
+    letter-spacing:.2em;
+    color:var(--khaki);
+  }
+  .hero__grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:64px;
+    align-items:start;
+  }
+  .hero__left{padding-top:6px;}
+  h1{
+    font-size:clamp(2.55rem,5vw,4.6rem);
+    font-weight:500;
+    max-width:14ch;
+  }
+  h1 .accent{color:var(--terra);}
+  .hero__sub{
+    margin-top:34px;
+    max-width:44ch;
+    border-left:2px solid var(--amber);
+    padding-left:22px;
+  }
+  .hero__cta{
+    margin-top:44px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .hero__foot{
+    margin-top:56px;
+    display:flex;
+    align-items:center;
+    gap:26px;
+    color:var(--khaki);
+  }
+  .hero__foot .label{color:var(--khaki);}
+  .hero__foot .dash{flex:1;height:1px;background:var(--line);}
+
+  /* portrait */
+  .portrait{
+    position:relative;
+    padding:14px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:0 30px 60px -40px rgba(28,20,14,0.4);
+  }
+  .portrait::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid var(--line-soft);
+    pointer-events:none;
+    z-index:2;
+  }
+  .portrait__img{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    filter:saturate(1.02);
+  }
+  .portrait__cap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:16px;
+    padding:0 4px 2px;
+  }
+  .portrait__cap .name{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:1rem;
+  }
+  .portrait__tag{
+    position:absolute;
+    top:34px;
+    right:-14px;
+    background:var(--terra);
+    color:var(--cream);
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:.66rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:8px 14px;
+    z-index:3;
+  }
+
+  /* ---------- SECTION: приходят ---------- */
+  section{position:relative;}
+  .sec-head{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:end;
+    padding-top:20px;
+    margin-bottom:52px;
+  }
+  .sec-head__idx{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:1rem;
+    letter-spacing:.2em;
+    color:var(--khaki);
+    padding-bottom:8px;
+  }
+  .sec-head__main .label{display:block;margin-bottom:16px;}
+  .sec-head__main h2{
+    font-size:clamp(1.9rem,3.6vw,3.1rem);
+    max-width:20ch;
+  }
+  .sec-head__main h2 .accent{color:var(--terra);}
+
+  .come{padding:78px 0 40px;border-top:1px solid var(--line);}
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);
+  }
+  .card{
+    padding:40px 34px 46px;
+    border-right:1px solid var(--line);
+    position:relative;
+    transition:background .3s ease;
+  }
+  .card:last-child{border-right:0;}
+  .card:hover{background:var(--paper);}
+  .card__num{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:2.4rem;
+    color:var(--yellow);
+    line-height:1;
+    margin-bottom:24px;
+  }
+  .card .label{display:block;margin-bottom:26px;color:var(--olive);}
+  .card__quote{
+    font-family:'Montserrat',sans-serif;
+    font-weight:400;
+    font-size:1.02rem;
+    line-height:1.62;
+    color:var(--ink);
+    padding-left:20px;
+    border-left:2px solid var(--line);
+    margin-bottom:26px;
+  }
+  .card__quote:last-child{margin-bottom:0;}
+  .card:hover .card__quote{border-left-color:var(--amber);}
+
+  /* call-out band */
+  .band{
+    margin-top:78px;
+    background:var(--brown);
+    color:var(--cream);
+    padding:74px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .band::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:340px;height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(222,146,50,0.28),transparent 68%);
+  }
+  .band .wrap{position:relative;z-index:1;}
+  .band .label{color:var(--yellow);margin-bottom:30px;display:block;}
+  .band__lines{
+    font-family:'Oswald',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    line-height:1.2;
+    font-size:clamp(1.5rem,3.1vw,2.5rem);
+    letter-spacing:.01em;
+  }
+  .band__lines .l1{color:rgba(252,247,229,0.55);}
+  .band__lines .l2{color:var(--cream);}
+  .band__lines .l3{
+    display:inline-block;
+    margin-top:22px;
+    font-size:clamp(.9rem,1.4vw,1.1rem);
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    letter-spacing:.14em;
+    color:var(--amber);
+    text-transform:uppercase;
+  }
+
+  /* ---------- SECTION: как я работаю ---------- */
+  .work{padding:96px 0 100px;}
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    margin-top:60px;
+    border-top:1px solid var(--line);
+  }
+  .step{
+    padding:44px 30px 38px;
+    border-right:1px solid var(--line);
+    position:relative;
+  }
+  .step:last-child{border-right:0;}
+  .step__top{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:30px;
+  }
+  .step__big{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:3.4rem;
+    line-height:.8;
+    color:var(--terra);
+  }
+  .step h3{
+    font-size:1.42rem;
+    font-weight:500;
+    margin-bottom:16px;
+    max-width:14ch;
+  }
+  .step__line{
+    width:44px;height:2px;background:var(--amber);
+    margin-bottom:20px;
+  }
+  .work .sec-head{margin-bottom:10px;}
+  .work__sub{
+    max-width:52ch;
+    margin-top:22px;
+    padding-left:calc(1rem + 28px);
+  }
+
+  /* ---------- responsive ---------- */
+  @media(max-width:980px){
+    .wrap{padding:0 30px;}
+    .hero__grid{grid-template-columns:1fr;gap:48px;}
+    .hero__right{max-width:440px;}
+    .cards,.steps{grid-template-columns:1fr;}
+    .card{border-right:0;border-bottom:1px solid var(--line);}
+    .card:last-child{border-bottom:0;}
+    .step{border-right:0;border-bottom:1px solid var(--line);}
+    .step:last-child{border-bottom:0;}
+    .nav__links{display:none;}
+    .nav__toggle{display:flex;}
+    .nav.open .nav__links{
+      display:flex;
+      position:absolute;
+      top:78px;left:0;right:0;
+      flex-direction:column;
+      gap:0;
+      background:var(--cream);
+      border-bottom:1px solid var(--line);
+      padding:8px 30px 20px;
+    }
+    .nav.open .nav__links a{padding:14px 0;border-bottom:1px solid var(--line-soft);}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px;}
+    .hero{padding:48px 0 64px;}
+    .hero__cta{flex-direction:column;align-items:stretch;}
+    .hero__cta .btn{justify-content:center;}
+    .nav .btn{display:none;}
+    .sec-head{grid-template-columns:1fr;gap:10px;}
+    .come{padding:56px 0 30px;}
+    .band{padding:56px 0;}
+    .work{padding:70px 0 76px;}
+    .work__sub{padding-left:0;}
+    .card,.step{padding:34px 24px;}
+    .hero__foot{flex-wrap:wrap;gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="brand">Светлана Цыро</a>
+    <ul class="nav__links">
+      <li><a href="#come">Это про вас?</a></li>
+      <li><a href="#method">Как это работает</a></li>
+      <li><a href="#formats">Форматы</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#about">Обо мне</a></li>
+    </ul>
+    <a href="#contact" class="btn">Написать</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero__meta">
+      <span class="idx">01 – Личный бренд</span>
+      <div class="dash" style="flex:1;height:1px;background:var(--line);"></div>
+      <span class="label label--muted">Метод · Продукты · Инфраструктура</span>
+    </div>
+
+    <div class="hero__grid">
+      <div class="hero__left">
+        <h1>Помогаю сильным экспертам собирать свои <span class="accent">продукты</span> и строю инфраструктуру для них</h1>
+
+        <div class="hero__cta">
+          <a href="#method" class="btn">Узнать подробности</a>
+          <a href="#contact" class="btn btn--ghost">Связаться со мной</a>
+        </div>
+
+        <div class="hero__foot">
+          <span class="label">Практика с 1:1 клиентами</span>
+          <span class="dash"></span>
+          <span class="label">Онлайн</span>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <figure class="portrait">
+          <span class="portrait__tag">Наставник</span>
+          <img src="svetlana.jpg" alt="Светлана Цыро" class="portrait__img">
+          <figcaption class="portrait__cap">
+            <span class="name">Светлана Цыро</span>
+            <span class="label label--muted">Портрет</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- С ЧЕМ КО МНЕ ПРИХОДЯТ -->
+<section class="come" id="come">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-head__idx">02</span>
+      <div class="sec-head__main">
+        <span class="label">С чем ко мне приходят</span>
+        <h2>Вы умеете помогать другим. А со своим делом <span class="accent">– застряли</span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="cards">
+      <article class="card">
+        <div class="card__num">01</div>
+        <span class="label">Психолог · коуч · эксперт</span>
+        <p class="card__quote">Столько всего умею и знаю, но объяснить, кто я и чем могу помочь, сложно</p>
+        <p class="card__quote">Давно хочу перейти в групповой формат или сделать продукт в записи, но никак не доходят руки</p>
+      </article>
+
+      <article class="card">
+        <div class="card__num">02</div>
+        <span class="label">Консультант · наставник</span>
+        <p class="card__quote">У клиентов есть результаты, но как собрать из этого курс – не знаю</p>
+        <p class="card__quote">Хочу перестать зависеть от сарафана и выйти на более высокий и стабильный доход</p>
+      </article>
+
+      <article class="card">
+        <div class="card__num">03</div>
+        <span class="label">Услуги · СММ · микробизнес</span>
+        <p class="card__quote">Мне нужно упаковаться, у меня даже нормального сайта нет</p>
+        <p class="card__quote">Заказы идут по рекомендации, а как расти и поднять цену – непонятно</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- BAND -->
+  <div class="band">
+    <div class="wrap">
+      <span class="label">Главное</span>
+      <p class="band__lines">
+        <span class="l1">Чтобы вырасти, вам не нужно идти и узнавать что-то новое.</span><br>
+        <span class="l2">Нужно собрать систему вашей работы на основе вашего метода и подхода.</span>
+        <span class="l3">Именно это я и делаю с клиентами</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- КАК Я РАБОТАЮ -->
+<section class="work" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-head__idx">03</span>
+      <div class="sec-head__main">
+        <span class="label">Как я работаю</span>
+        <h2>Я помогаю собрать ваш метод <span class="accent">– опору</span>, из которой вырастает любой ваш продукт</h2>
+      </div>
+    </div>
+    <p class="sub work__sub">Чтобы вы перестали каждый раз начинать с чистого листа и не знать, за что хвататься.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step__top">
+          <span class="step__big">1</span>
+          <span class="label">Шаг 1</span>
+        </div>
+        <div class="step__line"></div>
+        <h3>Достаём ваш метод</h3>
+        <p class="body">Формулируем, как именно вы приводите людей к результату.</p>
+      </div>
+
+      <div class="step">
+        <div class="step__top">
+          <span class="step__big">2</span>
+          <span class="label">Шаг 2</span>
+        </div>
+        <div class="step__line"></div>
+        <h3>Собираем лестницу продуктов</h3>
+        <p class="body">Выстраиваем линейку – от первого касания до флагмана.</p>
+      </div>
+
+      <div class="step">
+        <div class="step__top">
+          <span class="step__big">3</span>
+          <span class="label">Шаг 3</span>
+        </div>
+        <div class="step__line"></div>
+        <h3>Строим систему под ваш метод</h3>
+        <p class="body">Настраиваем инфраструктуру, чтобы всё работало без вас.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var nav=document.getElementById('nav');
+  var toggle=document.getElementById('navToggle');
+  toggle.addEventListener('click',function(){nav.classList.toggle('open');});
+  nav.querySelectorAll('.nav__links a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open');});
+  });
+</script>
+
+</body>
+</html>

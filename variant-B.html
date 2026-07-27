@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Светлана Цыро</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2C2D27;
+  --cream:#FCF7E5;
+  --paper:#FDFDF9;
+  --terra:#BE622B;
+  --amber:#DE9232;
+  --yellow:#F2C572;
+  --olive:#88A620;
+  --khaki:#A69752;
+  --brown:#1C140E;
+  --line:rgba(44,45,39,.10);
+  --shadow-soft:0 18px 50px -28px rgba(28,20,14,.28);
+  --shadow-card:0 22px 60px -34px rgba(28,20,14,.30);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(252,247,229,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.brand{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:19px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;white-space:nowrap;
+}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{
+  font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;
+  letter-spacing:.01em;opacity:.72;transition:opacity .25s,color .25s;position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;
+  background:var(--terra);transition:width .3s ease;
+}
+.nav-links a:hover{opacity:1;color:var(--terra)}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;
+  letter-spacing:.02em;text-decoration:none;cursor:pointer;border:none;
+  padding:13px 26px;border-radius:100px;transition:transform .25s,box-shadow .25s,background .25s,color .25s;
+}
+.btn-solid{background:var(--terra);color:var(--paper);box-shadow:0 12px 28px -14px rgba(190,98,43,.7)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(190,98,43,.85);background:#a9531f}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(44,45,39,.25)}
+.btn-ghost:hover{border-color:var(--terra);color:var(--terra);transform:translateY(-2px)}
+.nav-cta{padding:11px 24px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ===== HERO ===== */
+.hero{padding:84px 0 96px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:13px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:26px;
+}
+.eyebrow::before{content:"";width:34px;height:1.5px;background:var(--amber)}
+.hero h1{
+  font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:clamp(38px,5vw,62px);line-height:1.08;
+  letter-spacing:-.01em;color:var(--ink);margin-bottom:30px;
+}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero-lead{
+  font-size:17px;font-weight:400;line-height:1.7;
+  color:rgba(44,45,39,.78);max-width:500px;margin-bottom:38px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+.btn-lg{padding:16px 32px;font-size:15px}
+
+/* photo frame */
+.photo-col{display:flex;justify-content:center}
+.frame{
+  position:relative;padding:14px;background:var(--paper);
+  border-radius:26px;box-shadow:var(--shadow-card);
+  border:1px solid var(--line);
+}
+.frame::before{
+  content:"";position:absolute;inset:-14px;border-radius:34px;
+  border:1px solid rgba(190,98,43,.22);z-index:-1;
+}
+.frame-blob{
+  content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,197,114,.55),rgba(242,197,114,0) 70%);
+  top:-70px;right:-70px;z-index:-2;filter:blur(6px);
+}
+.frame img{
+  display:block;width:100%;max-width:400px;height:auto;
+  border-radius:16px;object-fit:cover;aspect-ratio:4/5;
+}
+.frame-cap{
+  position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);
+  background:var(--ink);color:var(--cream);
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 22px;border-radius:100px;white-space:nowrap;
+  box-shadow:var(--shadow-soft);
+}
+
+/* ===== SECTION SHELL ===== */
+.section{padding:96px 0}
+.section-head{max-width:760px;margin-bottom:56px}
+.tag{
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--olive);
+  display:inline-block;margin-bottom:20px;
+}
+.section h2{
+  font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:clamp(28px,3.6vw,44px);line-height:1.14;
+  letter-spacing:-.005em;color:var(--ink);
+}
+.section h2 em{font-style:normal;color:var(--terra)}
+.section-sub{
+  font-size:17px;color:rgba(44,45,39,.72);margin-top:20px;max-width:640px;line-height:1.7;
+}
+
+/* ===== PAIN CARDS ===== */
+.pain{background:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{
+  background:var(--cream);border:1px solid var(--line);
+  border-radius:22px;padding:40px 34px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .3s,box-shadow .3s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}
+.card-no{
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:15px;
+  letter-spacing:.14em;color:var(--khaki);margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+}
+.card-no span{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--yellow);color:var(--brown);
+  font-size:16px;font-weight:600;letter-spacing:0;
+}
+.card-title{
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:22px;
+  line-height:1.2;color:var(--ink);margin-bottom:22px;
+}
+.card-quotes{list-style:none;display:flex;flex-direction:column;gap:16px}
+.card-quotes li{
+  position:relative;padding-left:26px;
+  font-size:15px;line-height:1.6;color:rgba(44,45,39,.82);
+}
+.card-quotes li::before{
+  content:"“";position:absolute;left:0;top:-4px;
+  font-family:'Oswald',sans-serif;font-size:30px;line-height:1;
+  color:var(--amber);
+}
+
+/* ===== CALLOUT ===== */
+.callout{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.callout::before{
+  content:"";position:absolute;width:440px;height:440px;border-radius:50%;
+  background:radial-gradient(circle,rgba(190,98,43,.35),transparent 70%);
+  top:-160px;right:-120px;
+}
+.callout::after{
+  content:"";position:absolute;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(136,166,32,.24),transparent 70%);
+  bottom:-160px;left:-100px;
+}
+.callout-inner{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center}
+.callout p{
+  font-family:'Oswald',sans-serif;font-weight:400;
+  font-size:clamp(24px,3.2vw,38px);line-height:1.32;letter-spacing:-.005em;
+}
+.callout p + p{margin-top:14px}
+.callout .accent{color:var(--yellow)}
+.callout .mid{color:var(--cream)}
+.callout .last{
+  display:inline-block;margin-top:26px;font-family:'Montserrat',sans-serif;
+  font-weight:500;font-size:17px;letter-spacing:.02em;color:rgba(252,247,229,.72);
+}
+
+/* ===== METHOD / STEPS ===== */
+.method{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.step{
+  background:var(--paper);border:1px solid var(--line);border-radius:22px;
+  padding:38px 32px 40px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-soft);transition:transform .3s,box-shadow .3s;
+}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}
+.step-label{
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
+  display:inline-block;margin-bottom:20px;
+}
+.step-num{
+  position:absolute;top:24px;right:28px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:60px;
+  line-height:1;color:rgba(190,98,43,.10);
+}
+.step h3{
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:23px;
+  line-height:1.18;color:var(--ink);margin-bottom:14px;
+}
+.step p{font-size:15px;line-height:1.65;color:rgba(44,45,39,.72)}
+.step-bar{height:3px;width:44px;border-radius:3px;margin-top:24px}
+
+footer.mini{padding:40px 0 60px;text-align:center}
+.mini p{font-size:13px;color:rgba(44,45,39,.5);letter-spacing:.04em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:56px}
+  .photo-col{order:-1}
+  .cards,.steps{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-links.open{
+    display:flex;position:absolute;top:76px;left:0;right:0;
+    flex-direction:column;gap:0;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:8px 0;box-shadow:var(--shadow-soft);
+  }
+  .nav-links.open li{width:100%}
+  .nav-links.open a{display:block;padding:14px 40px;opacity:.85}
+  .nav-links.open a::after{display:none}
+  .burger{display:flex}
+  .nav-cta{display:none}
+}
+@media(max-width:560px){
+  .wrap{padding:0 22px}
+  .hero{padding:56px 0 76px}
+  .section{padding:70px 0}
+  .card,.step{padding:32px 26px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-lg{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">Светлана Цыро</a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#pain">Это про вас?</a></li>
+      <li><a href="#method">Как это работает</a></li>
+      <li><a href="#formats">Форматы</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#about">Обо мне</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-solid nav-cta">Написать</a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">Метод · Продукты · Инфраструктура</span>
+      <h1>Помогаю сильным экспертам собирать свои продукты и строю <em>инфраструктуру</em> для них</h1>
+      <p class="hero-lead">Собираем систему вашей работы на основе вашего метода и подхода – опору, из которой вырастает любой ваш продукт.</p>
+      <div class="hero-actions">
+        <a href="#method" class="btn btn-solid btn-lg">Узнать подробности</a>
+        <a href="#contact" class="btn btn-ghost btn-lg">Связаться со мной</a>
+      </div>
+    </div>
+    <div class="photo-col">
+      <div class="frame">
+        <span class="frame-blob"></span>
+        <img src="svetlana.jpg" alt="Светлана Цыро">
+        <span class="frame-cap">Светлана Цыро</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="section pain" id="pain">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">С чем ко мне приходят</span>
+      <h2>Вы умеете помогать другим. А со своим делом – <em>застряли</em></h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="card-no"><span>1</span></div>
+        <h3 class="card-title">Психолог · коуч · эксперт</h3>
+        <ul class="card-quotes">
+          <li>Столько всего умею и знаю, но объяснить, кто я и чем могу помочь, сложно</li>
+          <li>Давно хочу перейти в групповой формат или сделать продукт в записи, но никак не доходят руки</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="card-no"><span>2</span></div>
+        <h3 class="card-title">Консультант · наставник</h3>
+        <ul class="card-quotes">
+          <li>У клиентов есть результаты, но как собрать из этого курс – не знаю</li>
+          <li>Хочу перестать зависеть от сарафана и выйти на более высокий и стабильный доход</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="card-no"><span>3</span></div>
+        <h3 class="card-title">Услуги · СММ · микробизнес</h3>
+        <ul class="card-quotes">
+          <li>Мне нужно упаковаться, у меня даже нормального сайта нет</li>
+          <li>Заказы идут по рекомендации, а как расти и поднять цену – непонятно</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CALLOUT -->
+<section class="section callout">
+  <div class="wrap">
+    <div class="callout-inner">
+      <p class="mid">Чтобы вырасти, вам не нужно идти и узнавать что-то новое.</p>
+      <p class="accent">Нужно собрать систему вашей работы на основе вашего метода и подхода.</p>
+      <span class="last">Именно это я и делаю с клиентами.</span>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section method" id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Как я работаю</span>
+      <h2>Я помогаю собрать ваш метод – <em>опору</em>, из которой вырастает любой ваш продукт</h2>
+      <p class="section-sub">Чтобы вы перестали каждый раз начинать с чистого листа и не знать, за что хвататься.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <span class="step-num">01</span>
+        <span class="step-label">Шаг 1</span>
+        <h3>Достаём ваш метод</h3>
+        <p>Раскладываем то, что вы уже делаете интуитивно, в понятную структуру и язык.</p>
+        <div class="step-bar" style="background:var(--terra)"></div>
+      </article>
+      <article class="step">
+        <span class="step-num">02</span>
+        <span class="step-label">Шаг 2</span>
+        <h3>Собираем лестницу продуктов</h3>
+        <p>Выстраиваем линейку форматов – от первого шага клиента до флагмана.</p>
+        <div class="step-bar" style="background:var(--amber)"></div>
+      </article>
+      <article class="step">
+        <span class="step-num">03</span>
+        <span class="step-label">Шаг 3</span>
+        <h3>Строим систему под ваш метод</h3>
+        <p>Настраиваем инфраструктуру, чтобы всё работало без ручного хаоса.</p>
+        <div class="step-bar" style="background:var(--olive)"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="mini">
+  <div class="wrap"><p>© Светлана Цыро</p></div>
+</footer>
+
+<script>
+  var b=document.getElementById('burger'),n=document.getElementById('navlinks');
+  b.addEventListener('click',function(){n.classList.toggle('open')});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
+</script>
+</body>
+</html>
