@@ -175,13 +175,14 @@ a.plain:hover{text-decoration:underline}
 @media(max-width:900px){.hero h1{font-size:46px}.hero-mark{display:none}}
 
 /* mirror */
-.mirror .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:14px}
+.mirror .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:14px}
 .per{background:var(--cream);border-radius:16px;padding:28px 30px}
 .per .who{font-family:var(--font-b);font-weight:600;color:var(--terra);font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
 .per .say{font-size:18px;color:var(--dark);line-height:1.5}
 .per .say span{display:block;margin-bottom:7px;padding-left:20px;position:relative}
 .per .say span::before{content:'«';position:absolute;left:0;color:var(--khaki)}
 .mirror .after{margin-top:40px;font-size:20px;max-width:62ch}
+.callout{margin-top:44px;border:2px solid var(--amber);background:var(--cream);border-radius:16px;padding:26px 32px;font-size:20px;color:var(--dark);max-width:64ch;line-height:1.45}
 @media(max-width:760px){.mirror .grid{grid-template-columns:1fr}}
 
 /* method */
@@ -300,11 +301,10 @@ footer{background:var(--brown);color:rgba(252,247,229,.5);padding:34px 0;font-si
   <div class="hero-mark">С</div>
   <div class="wrap">
     <div class="r4">Светлана Цыро · метод и инфраструктура для экспертов</div>
-    <h1 class="r1">Помогаю сильным экспертам собрать своё дело – и перестать держать его на себе</h1>
-    <p class="lead">Вы много знаете и умеете, но продукт не складывается, клиенты идут как повезёт, а половина работы держится в голове. Достаю ваш метод из практики и строю вокруг него систему – чтобы вы могли зарабатывать, расти в доходе и стать узнаваемым экспертом в своей области.</p>
+    <h1 class="r1">Помогаю сильным экспертам собирать свои продукты и строю инфраструктуру для них</h1>
     <div class="hero-cta">
       <a href="#method" class="btn btn-primary">Узнать подробности</a>
-      <a href="#cases" class="btn btn-ghost">Смотреть кейсы</a>
+      <a href="#contact" class="btn btn-ghost">Связаться со мной</a>
     </div>
   </div>
 </header>
@@ -312,27 +312,23 @@ footer{background:var(--brown);color:rgba(252,247,229,.5);padding:34px 0;font-si
 <!-- MIRROR -->
 <section class="mirror" id="mirror">
   <div class="wrap">
-    <div class="r4">Узнали себя?</div>
-    <h2 class="r1">Вы отлично помогаете другим. А со своим делом – застряли</h2>
+    <div class="r4">С чем ко мне приходят</div>
+    <h2 class="r1">Вы умеете помогать другим. А со своим делом – застряли</h2>
     <div class="grid">
       <div class="per">
         <div class="who">Психолог · коуч</div>
-        <p class="say"><span>Для других я всё вижу и могу показать. А для себя – чистый лист»</span><span>Каша из опыта и обучений. Кто я вообще как эксперт?»</span></p>
+        <p class="say"><span>Для других я всё вижу и понимаю. А как доходит до себя – не могу собрать себя в кучу»</span><span>Каша из опыта и обучений. Клиенты есть, а упаковать себя не получается»</span></p>
       </div>
       <div class="per">
-        <div class="who">Консультант · наставник</div>
-        <p class="say"><span>Кто пришёл, тот пришёл. Всё по рекомендации»</span><span>Не понимаю, какой продукт запускать и за что браться»</span></p>
-      </div>
-      <div class="per">
-        <div class="who">СММ · услуги · свой микро-бизнес</div>
-        <p class="say"><span>Мне нужно упаковаться, у меня даже сайта нет»</span><span>Я посчитала – мне вроде невыгодно»</span></p>
+        <div class="who">Консультант · наставник · фрилансер</div>
+        <p class="say"><span>Клиенты приходят по рекомендации, а как расти дальше – не знаю»</span><span>Устала быть просто фрилансером, хочу повысить доход»</span></p>
       </div>
       <div class="per">
         <div class="who">Эксперт с готовой программой</div>
-        <p class="say"><span>Составила программу – и всё никак не запущу»</span><span>Сколько всего умею, а объяснить не могу»</span></p>
+        <p class="say"><span>Составила программу – и всё никак не запущу»</span><span>Столько всего умею, а объяснить не могу»</span></p>
       </div>
     </div>
-    <p class="after"><strong>Дело не в том, что вы мало знаете.</strong> Наоборот, вы знаете и умеете так много, что не видите в этом системы. Метод у вас уже есть, ему не хватает только формы и зеркала, которое поможет его вытащить.</p>
+    <div class="callout">Чтобы вырасти, вам не нужно узнавать что-то новое. Нужно построить систему на основе вашего же метода и подхода – такую, что работает на вас.</div>
   </div>
 </section>
 
