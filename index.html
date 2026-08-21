@@ -53,19 +53,17 @@ img{max-width:100%;display:block}
 
 /* ---- КАРКАС ---- */
 .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem)}
-section{padding:clamp(3rem,7vw,5rem) 0;scroll-margin-top:56px}
+section{padding:clamp(3rem,7vw,5rem) 0;scroll-margin-top:1rem}
 .sec-head{margin-bottom:2.5rem}
 .sec-head .r4{display:block;margin-bottom:.5rem}
 .sec-note{max-width:760px;margin-top:1rem}
 hr.divider{border:none;border-top:1px solid var(--line);margin:0}
 
-/* ---- NAV ---- */
-nav{position:sticky;top:0;z-index:200;background:rgba(253,253,249,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.2rem;padding:0 clamp(.8rem,3vw,2rem);overflow-x:auto;scrollbar-width:none}
-nav::-webkit-scrollbar{height:0}
-nav a{display:inline-block;padding:.9rem .8rem;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-dark);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
-nav a:hover{color:var(--c-amber);border-bottom-color:var(--c-amber)}
-nav .nav-brand{font-family:var(--font-heading);font-size:18px;color:var(--c-amber);margin-right:auto;letter-spacing:.05em;border:none}
-nav .nav-brand:hover{border-bottom-color:transparent}
+/* ---- МЕНЮ-ПЕРЕХОДЫ ПОД ШАПКОЙ ---- */
+.jump{background:var(--c-cream);border-bottom:1px solid var(--line)}
+.jump-inner{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1.5rem;padding-bottom:1.5rem}
+.jump a{display:inline-block;padding:.6rem 1.15rem;border-radius:40px;border:1px solid var(--c-amber);background:transparent;color:var(--c-dark-brown);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:background .2s}
+.jump a:hover{background:var(--c-warm-yellow)}
 
 /* ---- HERO ---- */
 #hero{background:var(--c-dark-brown);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4.5rem) 0}
@@ -138,7 +136,7 @@ nav .nav-brand:hover{border-bottom-color:transparent}
 .pub a{color:var(--c-terracotta);text-decoration:underline;text-underline-offset:3px}
 
 /* ---- ФУТЕР ---- */
-footer{background:var(--c-dark-brown);color:rgba(252,247,229,.6);padding:3.5rem 0 3rem}
+footer{background:var(--c-dark-brown);color:rgba(252,247,229,.6);padding:3.5rem 0 3rem;border-top:4px solid var(--c-amber)}
 footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
 .tg{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;padding:.8rem 1.8rem;border-radius:40px;background:var(--c-amber);color:var(--c-dark-brown);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .tg:hover{background:var(--c-warm-yellow)}
@@ -165,16 +163,6 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
 </head>
 <body>
 
-<nav>
-  <a class="nav-brand" href="#hero">Светлана Цыро</a>
-  <a href="#regalia">Образование</a>
-  <a href="#works">Проекты</a>
-  <a href="#platforms">Платформы</a>
-  <a href="#own">Свои проекты</a>
-  <a href="#pubs">Материалы</a>
-  <a href="#line">Опыт</a>
-  <a href="uslugi.html">Услуги</a>
-</nav>
 
 <header id="hero">
   <div class="wrap hero-grid">
@@ -207,64 +195,18 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
   </div>
 </header>
 
-<section id="regalia">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="r1">Образование и сертификация</h2>
-    </div>
-    <div class="reg-list">
-      <div class="reg">
-        <div class="reg-year">2013</div>
-        <div>
-          <p class="r2">Российская таможенная академия</p>
-          <p>Специальность «Международное таможенное сотрудничество».</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2018</div>
-        <div>
-          <p class="r2">Тренинг тренеров</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2023</div>
-        <div>
-          <p class="r2">Академия экспоненциального коучинга</p>
-          <p>Сертифицированный экспоненциальный коуч.</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2023</div>
-        <div>
-          <p class="r2">Сертифицированный методолог</p>
-          <p>Проектирование обучающих программ: от исследования аудитории до сборки курса и материалов.</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2023</div>
-        <div>
-          <p class="r2">Тренер-методолог по публичным выступлениям</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2025</div>
-        <div>
-          <p class="r2">Педагог дополнительного образования</p>
-          <p>Профессиональная переподготовка.</p>
-        </div>
-      </div>
-      <div class="reg">
-        <div class="reg-year">2026</div>
-        <div>
-          <p class="r2">Соавтор книги «НЕкнига. Диалоги»</p>
-          <p>Статья о диалоге с клиентом и его роли в определении метода работы.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<hr class="divider">
+<nav class="jump">
+  <div class="wrap jump-inner">
+    <a href="#works">Проекты и школы</a>
+    <a href="#platforms">Платформы под метод</a>
+    <a href="#own">Свои проекты</a>
+    <a href="#pubs">Материалы</a>
+    <a href="#line">Опыт работы</a>
+    <a href="#regalia">Образование</a>
+    <a href="uslugi.html">Услуги</a>
+  </div>
+</nav>
 
 <section id="works">
   <div class="wrap">
@@ -657,6 +599,63 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
     </div>
     <div class="line-note">
       <p>Я прихожу туда, где хаос и нет системы. Строю процесс, внедряю под него инструмент и сажусь рядом с человеком, пока он в этом инструменте не заработает.</p>
+    </div>
+  </div>
+</section>
+
+<section id="regalia">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="r1">Образование и сертификация</h2>
+    </div>
+    <div class="reg-list">
+      <div class="reg">
+        <div class="reg-year">2013</div>
+        <div>
+          <p class="r2">Российская таможенная академия</p>
+          <p>Специальность «Международное таможенное сотрудничество».</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2018</div>
+        <div>
+          <p class="r2">Тренинг тренеров</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2023</div>
+        <div>
+          <p class="r2">Академия экспоненциального коучинга</p>
+          <p>Сертифицированный экспоненциальный коуч.</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2023</div>
+        <div>
+          <p class="r2">Сертифицированный методолог</p>
+          <p>Проектирование обучающих программ: от исследования аудитории до сборки курса и материалов.</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2023</div>
+        <div>
+          <p class="r2">Тренер-методолог по публичным выступлениям</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2025</div>
+        <div>
+          <p class="r2">Педагог дополнительного образования</p>
+          <p>Профессиональная переподготовка.</p>
+        </div>
+      </div>
+      <div class="reg">
+        <div class="reg-year">2026</div>
+        <div>
+          <p class="r2">Соавтор книги «НЕкнига. Диалоги»</p>
+          <p>Статья о диалоге с клиентом и его роли в определении метода работы.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
