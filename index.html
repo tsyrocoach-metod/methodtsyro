@@ -99,21 +99,23 @@ nav .nav-brand:hover{border-bottom-color:transparent}
 .card-client{margin-bottom:1.1rem}
 .card-client .r2{margin-bottom:.15rem}
 .card-role{color:var(--c-khaki)}
-.rows{border-top:1px solid var(--line);padding-top:.9rem;margin-bottom:1rem;display:grid;gap:.75rem}
+.rows{border-top:1px solid var(--line);padding-top:.9rem;display:grid;gap:.75rem}
 .row-item{display:grid;grid-template-columns:112px 1fr;gap:.9rem;align-items:baseline}
 .row-item .r4{padding-top:.28rem}
-.card-result{margin-top:auto;background:var(--c-cream);border-radius:var(--radius-md);padding:.9rem 1.1rem}
-.card-result .r4{display:block;margin-bottom:.3rem;color:var(--c-terracotta)}
-.card-result ul{list-style:none;display:grid;gap:.3rem}
-.card-result li{padding-left:1.05rem;position:relative}
-.card-result li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--c-terracotta)}
+.row-result{background:var(--c-cream);border-radius:var(--radius-md);margin:.3rem -1rem 0;padding:.95rem 1rem;align-items:start}
+.row-result .r4{color:var(--c-terracotta)}
+.row-result ul{list-style:none;display:grid;gap:.3rem}
+.row-result li{padding-left:1.05rem;position:relative}
+.row-result li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--c-terracotta)}
 
 /* карточка из нескольких проектов */
-.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.sub{border-top:2px solid var(--c-amber);padding-top:1rem;display:flex;flex-direction:column}
+.card-group{background:var(--c-cream)}
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.sub{background:var(--c-offwhite);border:1px solid var(--line);border-top:3px solid var(--c-amber);border-radius:var(--radius-lg);padding:1.3rem;box-shadow:var(--shadow-card);display:flex;flex-direction:column}
 .sub .r4{display:block;margin-bottom:.35rem}
-.sub .r2{margin-bottom:.8rem}
+.sub .r2{margin-bottom:.9rem}
 .sub .rows{border-top:none;padding-top:0}
+.sub .row-result{margin:.3rem -.7rem 0;padding:.95rem .7rem}
 
 /* ---- ОПЫТ РАБОТЫ ---- */
 #line{background:var(--c-dark-brown);color:rgba(252,247,229,.78)}
@@ -269,7 +271,7 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
     </div>
 
     <div class="cards cards-single">
-      <article class="card">
+      <article class="card card-group">
         <div class="card-client">
           <p class="r2">Седа Каспарова</p>
           <p class="card-role">Три проекта: курс, клуб выпускников и публичные выступления</p>
@@ -283,14 +285,14 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
               <div class="row-item"><span class="r4">Программа</span><p>Курс на 10 недель</p></div>
               <div class="row-item"><span class="r4">Участники</span><p>130+ человек</p></div>
               <div class="row-item"><span class="r4">Что сделала</span><p>Превратила прописанные уроки в готовый продукт для 130+ студентов: вместе с командой – ТЗ на монтаж, конспекты и дополнительные материалы, проверка платформы и описаний. Полностью разработала рабочую тетрадь, по которой студенты прорабатывали практики курса. Сценарии уроков писал главный методолог.</p></div>
-            </div>
-            <div class="card-result">
+              <div class="row-item row-result">
               <span class="r4">Результат</span>
               <ul>
                 <li>Доходимость выше 90%</li>
                 <li>NPS выше 90%</li>
                 <li>Высокие отзывы выпускников о формате и сопровождении</li>
               </ul>
+            </div>
             </div>
           </div>
 
@@ -301,13 +303,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
               <div class="row-item"><span class="r4">Программа</span><p>Клуб по подписке для выпускников курса</p></div>
               <div class="row-item"><span class="r4">Участники</span><p>1000+ человек</p></div>
               <div class="row-item"><span class="r4">Что сделала</span><p>Спроектировала клуб, в который выпускники переходили сразу после курса, и сохранила в нём формат и атмосферу основной программы – то, за что люди и платили. Клуб вышел на самоокупаемость.</p></div>
-            </div>
-            <div class="card-result">
+              <div class="row-item row-result">
               <span class="r4">Результат</span>
               <ul>
                 <li>Удовлетворённость выше 90%</li>
                 <li>Клуб окупал себя, отзывы выпускников высокие</li>
               </ul>
+            </div>
             </div>
           </div>
 
@@ -318,12 +320,12 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
               <div class="row-item"><span class="r4">Программа</span><p>Подготовка выступлений спикера</p></div>
               <div class="row-item"><span class="r4">Участники</span><p>аудитория от 100 до 2000 человек</p></div>
               <div class="row-item"><span class="r4">Что сделала</span><p>Подготовила более 50 успешных выступлений на аудиторию от 100 до 2000 человек: структуры, сценарии и презентации.</p></div>
-            </div>
-            <div class="card-result">
+              <div class="row-item row-result">
               <span class="r4">Результат</span>
               <ul>
                 <li>Более 50 успешных выступлений</li>
               </ul>
+            </div>
             </div>
           </div>
 
@@ -342,13 +344,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>«Инфлюенс-маркетинг-менеджер», «Блогер с нуля», «ИИ для системной работы» (старт – сентябрь 2026)</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>массовая аудитория школы, новички без подготовки</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала три курса для массовой аудитории новичков: структуру и форматы уроков, сценарии, конспекты и анкеты. Переработала «Инфлюенс-маркетинг-менеджер» из слабой первой версии в практико-ориентированный курс. Для курса по ИИ собрала концепцию, программу четырёх модулей, позиционирование и смету.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Удовлетворённость выше 90%</li>
             <li>Курс «Инфлюенс-маркетинг-менеджер» переработан из первой версии в практико-ориентированный</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -361,13 +363,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>11 недель: 5 лекций, 5 практических занятий, 2 бонусные встречи, предобучение на входе, оффлайн-выпускной</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>19 человек, закрытый поток с сопровождением каждого</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала программу на 11 недель целиком: методологию и структуру модулей, предобучение из записей живого интенсива, интерактивные конспекты лекций и практик, разборы, домашние задания и материалы для сайта. Довела каждого участника до личного результата – на каждого собрано досье с точкой А, достижениями, инсайтами и целями.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Больше 10 твёрдых кейсов участников собрано на момент 4-го модуля из 5</li>
             <li>Конкретные цифры доходимости и удовлетворённости будут собраны и проанализированы к 1 сентября</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -380,14 +382,14 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Курс по методологии с практиками и мастер-группами</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>поток методологов и продюсеров обучающих продуктов</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Провела практикумы курса: работа с целевой аудиторией, кастдевы, техника онлайн-школы, сборка конспектов и материалов к запуску продукта. Вывела поток на NPS 100% при доходимости 90%.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>NPS 100%</li>
             <li>Доходимость 90%, удовлетворённость 9,7 из 10</li>
             <li>Отдельно отмечали лёгкость и доступность объяснений</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -400,13 +402,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Флагманская программа по методологии</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>50 человек</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Сделала полный продакшн программы на 50 человек: практикумы, конспекты, материалы и рабочие тетради, методическое сопровождение потока от старта до финала.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Программа собрана и проведена целиком</li>
             <li>Материалы программы легли в основу интерактивной книги</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -419,13 +421,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Продукт «ИИ-методолог»: методологический стандарт, инструкции и промпты для работы методолога с ИИ. Отдельно – интерактивная книга по методологии</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>методологи и продюсеры обучающих продуктов</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрали вместе рабочий стандарт: методология, инструкции и промпты, по которым методолог проектирует программы с ИИ. Интерактивную книгу собрала и сверстала целиком.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Рабочий стандарт, по которому методолог собирает программы с ИИ</li>
             <li>Интерактивная книга выпущена (доступ закрытый)</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -438,13 +440,13 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>«Эссенс» – применение ИИ для начинающих</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>онлайн-эксперты, мамы в декрете, специалисты из разных сфер – без технической подготовки</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала программу по применению ИИ для новичков: методологию, интерактивные конспекты и материалы. Провела практикумы и воркшопы по вайб-кодингу и онлайн-коворкинги, на которых участники выходили с готовыми материалами в руках.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Удовлетворённость выше 90%</li>
             <li>Участники выходили с готовыми сайтами, конспектами и квизами</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -457,12 +459,12 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Курс по невербальной коммуникации: 15 уроков-дней</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>аудитория эксперта по харизме и языку тела</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Сделала 15 интерактивных гайдов и конспектов к урокам курса. Методологию и съёмки эксперт вёл сам – материалы полностью на мне.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>15 интерактивных конспектов опубликованы на сайте программы</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -489,14 +491,14 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Потоки тренировок по 4 недели: личный кабинет, порционная выдача, оплаты, письма, админка</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>потоки учениц, доступ из России и из-за рубежа</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала платформу целиком и вывела в прод за 6 месяцев без единого разработчика. Встроила метод эксперта прямо в интерфейс – например, замер уровня энергии до и после тренировки. Настроила автодеплой, доступ из РФ и прошла аудит безопасности.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>6 месяцев работы соло, без единого разработчика</li>
             <li>350–550 часов разработки – рыночный эквивалент 700 тыс. – 1,5 млн ₽ у фрилансера</li>
             <li>Платформа в проде, потоки идут</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -509,12 +511,12 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Групповые программы в записи + собственная платформа обучения</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>три потока групп</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала платформу под её способ работы: обратная связь, карточки участников, проверка домашних заданий, задания и таблицы. Пересобрала презентации под уроки в записи – по этим материалам она провела три запуска групп сама.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Три запуска групп по собранным материалам и платформе</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -541,14 +543,14 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Клуб равных для практики + два платных курса, выросших из клуба</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>20–30 платящих участников каждый месяц, около года</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала формат клуба с нуля: за что платят, что происходит внутри, как устроен месяц. Выстроила процесс так, что вести могли трое по очереди, а участник не замечал переключения. Вырастила из клуба два платных курса, последний запуск провела практически одна.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>Два курса, каждый около 1 000 000 ₽ выручки</li>
             <li>Записи курсов продавались по 50 000 ₽</li>
             <li>Часть клиентов оттуда со мной до сих пор</li>
           </ul>
+        </div>
         </div>
       </article>
 
@@ -561,14 +563,14 @@ footer .r1{color:var(--c-offwhite);margin-bottom:1rem}
           <div class="row-item"><span class="r4">Программа</span><p>Групповая работа над продуктом, запуском и контентом</p></div>
           <div class="row-item"><span class="r4">Участники</span><p>4 участницы, аудитория запуска – 120 подписчиков</p></div>
           <div class="row-item"><span class="r4">Что сделала</span><p>Собрала и провела программу от продукта до запуска, каждая участница вышла с готовой программой. Продала без вебинаров и продающих созвонов – в переписке, через аудио-разборы.</p></div>
-        </div>
-        <div class="card-result">
+          <div class="row-item row-result">
           <span class="r4">Результат</span>
           <ul>
             <li>500 000+ ₽ выручки</li>
             <li>4 продажи по 80 000 ₽ на аудитории 120 человек</li>
             <li>Готовые программы участниц, одна приглашена вести практику в повторном запуске</li>
           </ul>
+        </div>
         </div>
       </article>
 
