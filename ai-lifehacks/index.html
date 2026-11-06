@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИИ-лайфхаки для экспертов – Светлана Цыро</title>
+<meta name="description" content="11 ИИ-лайфхаков для экспертов, которые работают на себя: календарь, план недели, клиенты, цена, сайт-визитка, ответы клиентам, контент и кейсы.">
+
+<meta property="og:title" content="ИИ-лайфхаки для экспертов – Светлана Цыро">
+<meta property="og:description" content="11 ИИ-лайфхаков для экспертов, которые работают на себя: календарь, план недели, клиенты, цена, сайт-визитка, ответы клиентам, контент и кейсы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--amber:#DE9232;--olive:#88A620;--dark:#2C2D27;--khaki:#A69752;--cream:#FCF7E5;--warm:#F2C572;--off:#FDFDF9;--terra:#BE622B;--brown:#1C140E;
+--line:rgba(223,146,50,.22);--r-md:12px;--r-lg:20px;--shadow:0 2px 12px rgba(44,45,38,.07)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--off);color:var(--dark);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+/* 4 роли: r1 заголовок, r2 подзаголовок, текст, r4 метка */
+.r1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:.03em;color:var(--brown)}
+.r2{font-size:19px;font-weight:700;line-height:1.4;color:var(--dark)}
+.r4{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+.narrow{max-width:760px}
+section{padding:clamp(2.5rem,6vw,4rem) 0}
+.sec-head{margin-bottom:1.6rem}.sec-head .r4{display:block;margin-bottom:.4rem}
+/* верхняя полоса */
+.top{background:var(--brown);border-bottom:1px solid rgba(223,146,50,.18)}
+.top-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.9rem;padding-bottom:.9rem}
+.top a{text-decoration:none;color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.top a.ghost{color:var(--warm)}
+/* шапка */
+.hero{background:var(--brown);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 85% 40%,rgba(223,146,50,.12) 0%,transparent 65%)}
+.hero .wrap{position:relative}
+.eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--amber);flex:none}
+.hero .r1{color:var(--off);font-size:clamp(2.8rem,6.5vw,5.2rem);margin-bottom:1rem}
+.hero p.lead{color:rgba(252,247,229,.78);max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.chip{border:1px solid rgba(223,146,50,.4);border-radius:40px;padding:.45rem 1rem;color:var(--cream);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.chip.paid{background:var(--amber);border-color:var(--amber);color:var(--brown)}
+/* списки */
+.ticks{list-style:none;display:grid;gap:.7rem}
+.ticks li{padding-left:1.4rem;position:relative}
+.ticks li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.steps{list-style:none;display:grid;gap:1rem;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:.6rem;align-items:baseline;counter-increment:s}
+.steps li::before{content:counter(s);font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:var(--amber)}
+/* промпт */
+.prompt{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.1rem,3vw,1.8rem)}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.7rem;border-radius:40px;border:0;background:var(--amber);color:var(--brown);font:700 12px 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--warm)}
+.btn.dark{background:var(--brown);color:var(--cream)}
+.btn.dark:hover{background:var(--dark)}
+.btn.line{background:transparent;border:1px solid var(--amber);color:var(--brown)}
+.dark-sec .btn.line{color:var(--cream)}
+.dark-sec .btn.line:hover{color:var(--brown)}
+pre.ptext{white-space:pre-wrap;word-wrap:break-word;font:15px/1.65 'Montserrat',sans-serif;color:var(--dark);max-height:340px;overflow:hidden;position:relative}
+pre.ptext.open{max-height:none}
+.fade{position:relative}
+.fade::after{content:'';position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--cream));pointer-events:none}
+.fade.open::after{display:none}
+.more{margin-top:.8rem;background:none;border:0;color:var(--terra);font:700 12px 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.hint{margin-top:1rem;color:#6b6659}
+/* пример */
+.ex{display:grid;grid-template-columns:1fr 1.4fr;gap:1.2rem}
+.ex-card{background:var(--off);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow)}
+.ex-card .r4{display:block;margin-bottom:.6rem}
+.ex-card.res{background:var(--cream)}
+.ex-card.res .r4{color:var(--terra)}
+.ex-card p+p{margin-top:.6rem}
+.next{border-left:3px solid var(--amber);background:rgba(223,146,50,.09);border-radius:0 var(--r-md) var(--r-md) 0;padding:1.2rem 1.4rem}
+.next .r4{display:block;margin-bottom:.3rem}
+/* каталог */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.card{background:var(--off);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow);display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(44,45,38,.12)}
+.card .num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;color:var(--amber)}
+.card .r2{margin:.5rem 0 .5rem}
+.card p{flex:1}
+.card .tag{margin-top:1rem;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.card.locked .tag{color:var(--terra)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.how div{border-top:2px solid rgba(223,146,50,.35);padding-top:1rem}
+.how .r2{margin:.3rem 0 .4rem}
+.dark-sec{background:var(--brown);color:rgba(252,247,229,.8)}
+.dark-sec .r1{color:var(--off)}.dark-sec .r2{color:var(--cream)}.dark-sec .r4{color:var(--warm)}
+.price{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.price-box{background:rgba(252,247,229,.05);border:1px solid rgba(223,146,50,.35);border-radius:var(--r-lg);padding:1.6rem}
+.price-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,4.4rem);line-height:1;color:var(--amber)}
+.price-alt{color:rgba(252,247,229,.7);margin:.2rem 0 1.2rem}
+.price-box .btn{width:100%;margin-top:.6rem}
+.price-note{margin-top:1rem;font-size:14px;color:rgba(252,247,229,.6)}
+.faq{display:grid;gap:1rem}
+.faq div{border:1px solid var(--line);border-radius:var(--r-md);padding:1.1rem 1.3rem;background:var(--off)}
+.faq .r2{font-size:17px;margin-bottom:.3rem}
+/* замок платной страницы */
+.gate-box{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.3rem,4vw,2rem);text-align:center;max-width:620px;margin:0 auto}
+.gate-box .r2{margin:.4rem 0 .6rem}
+.gate-box .btns{display:grid;gap:.6rem;margin:1.2rem auto 0;max-width:360px}
+.gate-box .small{font-size:14px;color:#6b6659;margin-top:1rem}
+footer{background:var(--brown);color:rgba(252,247,229,.6);padding:3rem 0;border-top:4px solid var(--amber)}
+footer .r1{color:var(--off);font-size:clamp(2rem,4vw,3rem);margin-bottom:.6rem}
+footer .btn{margin-top:1.2rem}
+.foot-meta{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(252,247,229,.12);color:rgba(252,247,229,.4);font-size:14px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.price{grid-template-columns:1fr}}
+@media (max-width:640px){.grid,.how,.ex{grid-template-columns:1fr}.steps li{grid-template-columns:34px 1fr}.top a{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in"><a href="/">Светлана Цыро</a><a class="ghost" href="https://t.me/svetlana_tsyro">Написать</a></div></div>
+<header class="hero"><div class="wrap">
+<p class="eyebrow r4">ИИ-лайфхаки для экспертов</p>
+<h1 class="r1">Своё дело с ИИ – по одному шагу</h1>
+<p class="lead">Для тех, кто работает на себя: консультирует, ведёт, учит, сопровождает. 11 готовых промптов, после которых у вас остаётся результат – план недели, расчёт цены, описание услуги, сайт-визитка. ИИ сам задаёт вопросы, а вы просто отвечаете.</p>
+<div class="chips"><span class="chip">3 открыто</span><span class="chip">8 в наборе</span><span class="chip">ChatGPT, GigaChat, Алиса, DeepSeek</span></div>
+</div></header>
+<section><div class="wrap">
+<div class="sec-head"><span class="r4">Как это работает</span><h2 class="r1">Три шага</h2></div>
+<div class="how">
+<div><span class="r4">01</span><p class="r2">Копируете промпт</p><p>И вставляете в любой чат с ИИ – ChatGPT, GigaChat, Алису или DeepSeek.</p></div>
+<div><span class="r4">02</span><p class="r2">Отвечаете на вопросы</p><p>ИИ спрашивает сам и даёт варианты ответа – можно просто выбирать.</p></div>
+<div><span class="r4">03</span><p class="r2">Забираете результат</p><p>План, текст, расчёт или страницу – и первый шаг, который можно сделать сегодня.</p></div>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap">
+<div class="sec-head"><span class="r4">Все лайфхаки</span><h2 class="r1">С чего начнёте?</h2></div>
+<div class="grid"><a class="card" href="/ai-lifehacks/nedelya-v-kalendare/"><span class="num">01</span><span class="r2">Неделя эксперта в календаре</span><p>Ритм недели, где у клиентов, своего дела и отдыха есть своё место.</p><span class="tag">Открыто · 20 минут</span></a><a class="card" href="/ai-lifehacks/plan-nedeli/"><span class="num">02</span><span class="r2">План недели и три главных дела</span><p>Выгрузить всё из головы и выбрать три дела, которые правда двигают дело.</p><span class="tag">Открыто · 15 минут</span></a><a class="card locked" href="/ai-lifehacks/klienty-do-celi/"><span class="num">03</span><span class="r2">Сколько клиентов до моей цели по доходу</span><p>Сколько продаж нужно до вашей цифры и откуда взять клиентов.</p><span class="tag">В наборе · 25 минут</span></a><a class="card locked" href="/ai-lifehacks/sait-vizitka/"><span class="num">04</span><span class="r2">Сайт-визитка за вечер</span><p>Одна страница с услугами и кнопкой записи – без программиста.</p><span class="tag">В наборе · Вечер, 1,5–2 часа</span></a><a class="card locked" href="/ai-lifehacks/odna-usluga/"><span class="num">05</span><span class="r2">Одна услуга на одну страницу</span><p>Описать услугу так, чтобы клиент за минуту понял: это для меня.</p><span class="tag">В наборе · 20–30 минут</span></a><a class="card locked" href="/ai-lifehacks/vygodna-li-cena/"><span class="num">06</span><span class="r2">Выгодна ли моя цена</span><p>Сколько на самом деле стоит час вашей работы и какая цена честная.</p><span class="tag">В наборе · 20 минут</span></a><a class="card" href="/ai-lifehacks/otvety-klientam/"><span class="num">07</span><span class="r2">Ответы клиентам без мучений</span><p>Тёплые готовые ответы на «дорого», «перенести» и «а если не поможет».</p><span class="tag">Открыто · 20 минут</span></a><a class="card locked" href="/ai-lifehacks/kontent-na-mesyac/"><span class="num">08</span><span class="r2">Контент на месяц из своей практики</span><p>План постов из вопросов клиентов и случаев из практики.</p><span class="tag">В наборе · 30 минут</span></a><a class="card locked" href="/ai-lifehacks/otzyv-i-keis/"><span class="num">09</span><span class="r2">Отзыв, который становится кейсом</span><p>Вопросы клиенту и короткий кейс «было → стало» из его ответов.</p><span class="tag">В наборе · 15 минут + ответ клиента</span></a><a class="card locked" href="/ai-lifehacks/anketa-i-pamyatka/"><span class="num">10</span><span class="r2">Клиент пришёл: анкета и памятка</span><p>Анкета до первой встречи и тёплая памятка для нового клиента.</p><span class="tag">В наборе · 20 минут</span></a><a class="card locked" href="/ai-lifehacks/posle-konsultacii/"><span class="num">11</span><span class="r2">После консультации: итоги и предложение</span><p>Письмо с итогами встречи и мягким предложением продолжить.</p><span class="tag">В наборе · 10 минут после встречи</span></a></div>
+</div></section>
+<section class="dark-sec" id="nabor"><div class="wrap"><div class="price">
+<div><span class="r4">Полный набор</span><h2 class="r1" style="margin:.4rem 0 1rem">Все 11 лайфхаков</h2>
+<p>3 лайфхака открыты всем. Ещё 8 – в полном наборе: клиенты до цели по доходу, честная цена, описание услуги, сайт-визитка, контент на месяц, отзывы и кейсы, анкета для клиента и письмо после консультации.</p></div>
+<div class="price-box"><div class="price-num">999 ₽</div><p class="price-alt">или 15 $ / 14 € · разовая оплата</p><a class="btn" href="https://t.me/svetlana_tsyro">Набор за 999 ₽</a><a class="btn line" href="https://t.me/svetlana_tsyro">Набор за 15 $ / 14 €</a><p class="price-note">Оплата разовая, без подписки. Пока оплату принимаю лично: напишите мне в Телеграм, и я пришлю реквизиты и ссылку на набор.</p></div>
+</div></div></section>
+<section><div class="wrap narrow">
+<div class="sec-head"><span class="r4">Вопросы</span><h2 class="r1">Коротко о главном</h2></div>
+<div class="faq">
+<div><p class="r2">Нужен ли платный ChatGPT?</p><p>Нет. Промпты работают и в бесплатных версиях ChatGPT, GigaChat, Алисы и DeepSeek. Если в ChatGPT включена память, он вспомнит, что уже знает о вас, а с подключённым Google Календарём сам поставит события. Без этого ИИ просто даст список, который вы внесёте сами.</p></div>
+<div><p class="r2">Я совсем не технарь. Справлюсь?</p><p>Да. Нужно только скопировать текст и отвечать на вопросы – ИИ ведёт сам. Даже для сайта-визитки код писать не придётся.</p></div>
+<div><p class="r2">Что будет после оплаты?</p><p>Ссылка, которая откроет все лайфхаки набора. Доступ навсегда, без подписки.</p></div>
+</div></div></section>
+<footer><div class="wrap">
+<p class="r1">Хотите, чтобы ИИ работал на ваше дело каждый день?</p>
+<p>Я помогаю экспертам, которые работают на себя, навести порядок в делах и собрать свою систему с ИИ – от календаря до продаж.</p>
+<a class="btn" href="https://t.me/svetlana_tsyro">Написать в Телеграм</a>
+<p class="foot-meta">Светлана Цыро · methodtsyro.ru</p>
+</div></footer>
+</body>
+</html>

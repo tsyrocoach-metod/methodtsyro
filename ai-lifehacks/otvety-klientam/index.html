@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ответы клиентам без мучений – ИИ-лайфхак для эксперта</title>
+<meta name="description" content="«Сколько стоит?», «Дорого», «А можно перенести?», «А если не поможет?» – на одни и те же вопросы вы отвечаете каждый раз заново и каждый раз переживаете. ИИ поможет собрать готовые ответы вашими словами – тёплые, спокойные и без оправданий.">
+
+<meta property="og:title" content="Ответы клиентам без мучений – ИИ-лайфхак для эксперта">
+<meta property="og:description" content="«Сколько стоит?», «Дорого», «А можно перенести?», «А если не поможет?» – на одни и те же вопросы вы отвечаете каждый раз заново и каждый раз переживаете. ИИ поможет собрать готовые ответы вашими словами – тёплые, спокойные и без оправданий.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--amber:#DE9232;--olive:#88A620;--dark:#2C2D27;--khaki:#A69752;--cream:#FCF7E5;--warm:#F2C572;--off:#FDFDF9;--terra:#BE622B;--brown:#1C140E;
+--line:rgba(223,146,50,.22);--r-md:12px;--r-lg:20px;--shadow:0 2px 12px rgba(44,45,38,.07)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--off);color:var(--dark);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+/* 4 роли: r1 заголовок, r2 подзаголовок, текст, r4 метка */
+.r1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:.03em;color:var(--brown)}
+.r2{font-size:19px;font-weight:700;line-height:1.4;color:var(--dark)}
+.r4{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+.narrow{max-width:760px}
+section{padding:clamp(2.5rem,6vw,4rem) 0}
+.sec-head{margin-bottom:1.6rem}.sec-head .r4{display:block;margin-bottom:.4rem}
+/* верхняя полоса */
+.top{background:var(--brown);border-bottom:1px solid rgba(223,146,50,.18)}
+.top-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.9rem;padding-bottom:.9rem}
+.top a{text-decoration:none;color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.top a.ghost{color:var(--warm)}
+/* шапка */
+.hero{background:var(--brown);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 85% 40%,rgba(223,146,50,.12) 0%,transparent 65%)}
+.hero .wrap{position:relative}
+.eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--amber);flex:none}
+.hero .r1{color:var(--off);font-size:clamp(2.8rem,6.5vw,5.2rem);margin-bottom:1rem}
+.hero p.lead{color:rgba(252,247,229,.78);max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.chip{border:1px solid rgba(223,146,50,.4);border-radius:40px;padding:.45rem 1rem;color:var(--cream);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.chip.paid{background:var(--amber);border-color:var(--amber);color:var(--brown)}
+/* списки */
+.ticks{list-style:none;display:grid;gap:.7rem}
+.ticks li{padding-left:1.4rem;position:relative}
+.ticks li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.steps{list-style:none;display:grid;gap:1rem;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:.6rem;align-items:baseline;counter-increment:s}
+.steps li::before{content:counter(s);font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:var(--amber)}
+/* промпт */
+.prompt{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.1rem,3vw,1.8rem)}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.7rem;border-radius:40px;border:0;background:var(--amber);color:var(--brown);font:700 12px 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--warm)}
+.btn.dark{background:var(--brown);color:var(--cream)}
+.btn.dark:hover{background:var(--dark)}
+.btn.line{background:transparent;border:1px solid var(--amber);color:var(--brown)}
+.dark-sec .btn.line{color:var(--cream)}
+.dark-sec .btn.line:hover{color:var(--brown)}
+pre.ptext{white-space:pre-wrap;word-wrap:break-word;font:15px/1.65 'Montserrat',sans-serif;color:var(--dark);max-height:340px;overflow:hidden;position:relative}
+pre.ptext.open{max-height:none}
+.fade{position:relative}
+.fade::after{content:'';position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--cream));pointer-events:none}
+.fade.open::after{display:none}
+.more{margin-top:.8rem;background:none;border:0;color:var(--terra);font:700 12px 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.hint{margin-top:1rem;color:#6b6659}
+/* пример */
+.ex{display:grid;grid-template-columns:1fr 1.4fr;gap:1.2rem}
+.ex-card{background:var(--off);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow)}
+.ex-card .r4{display:block;margin-bottom:.6rem}
+.ex-card.res{background:var(--cream)}
+.ex-card.res .r4{color:var(--terra)}
+.ex-card p+p{margin-top:.6rem}
+.next{border-left:3px solid var(--amber);background:rgba(223,146,50,.09);border-radius:0 var(--r-md) var(--r-md) 0;padding:1.2rem 1.4rem}
+.next .r4{display:block;margin-bottom:.3rem}
+/* каталог */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.card{background:var(--off);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow);display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(44,45,38,.12)}
+.card .num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;color:var(--amber)}
+.card .r2{margin:.5rem 0 .5rem}
+.card p{flex:1}
+.card .tag{margin-top:1rem;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.card.locked .tag{color:var(--terra)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.how div{border-top:2px solid rgba(223,146,50,.35);padding-top:1rem}
+.how .r2{margin:.3rem 0 .4rem}
+.dark-sec{background:var(--brown);color:rgba(252,247,229,.8)}
+.dark-sec .r1{color:var(--off)}.dark-sec .r2{color:var(--cream)}.dark-sec .r4{color:var(--warm)}
+.price{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.price-box{background:rgba(252,247,229,.05);border:1px solid rgba(223,146,50,.35);border-radius:var(--r-lg);padding:1.6rem}
+.price-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,4.4rem);line-height:1;color:var(--amber)}
+.price-alt{color:rgba(252,247,229,.7);margin:.2rem 0 1.2rem}
+.price-box .btn{width:100%;margin-top:.6rem}
+.price-note{margin-top:1rem;font-size:14px;color:rgba(252,247,229,.6)}
+.faq{display:grid;gap:1rem}
+.faq div{border:1px solid var(--line);border-radius:var(--r-md);padding:1.1rem 1.3rem;background:var(--off)}
+.faq .r2{font-size:17px;margin-bottom:.3rem}
+/* замок платной страницы */
+.gate-box{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.3rem,4vw,2rem);text-align:center;max-width:620px;margin:0 auto}
+.gate-box .r2{margin:.4rem 0 .6rem}
+.gate-box .btns{display:grid;gap:.6rem;margin:1.2rem auto 0;max-width:360px}
+.gate-box .small{font-size:14px;color:#6b6659;margin-top:1rem}
+footer{background:var(--brown);color:rgba(252,247,229,.6);padding:3rem 0;border-top:4px solid var(--amber)}
+footer .r1{color:var(--off);font-size:clamp(2rem,4vw,3rem);margin-bottom:.6rem}
+footer .btn{margin-top:1.2rem}
+.foot-meta{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(252,247,229,.12);color:rgba(252,247,229,.4);font-size:14px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.price{grid-template-columns:1fr}}
+@media (max-width:640px){.grid,.how,.ex{grid-template-columns:1fr}.steps li{grid-template-columns:34px 1fr}.top a{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in"><a href="/">Светлана Цыро</a><a class="ghost" href="/ai-lifehacks/">Все лайфхаки</a></div></div><header class="hero"><div class="wrap">
+<p class="eyebrow r4">ИИ-лайфхак для эксперта · 07</p>
+<h1 class="r1">Ответы клиентам без мучений</h1>
+<p class="lead">«Сколько стоит?», «Дорого», «А можно перенести?», «А если не поможет?» – на одни и те же вопросы вы отвечаете каждый раз заново и каждый раз переживаете. ИИ поможет собрать готовые ответы вашими словами – тёплые, спокойные и без оправданий.</p>
+<div class="chips"><span class="chip">20 минут</span><span class="chip">ChatGPT, GigaChat, Алиса, DeepSeek</span></div>
+</div></header><section><div class="wrap narrow"><div class="sec-head"><span class="r4">Что получится</span></div><ul class="ticks"><li>Ответы на 6–8 вопросов, которые вам задают чаще всего</li><li>Ваш тон: тепло, но с границами</li><li>Шпаргалка, которую можно держать в заметках или в шаблонах мессенджера</li></ul></div></section>
+<section style="padding-top:0"><div class="wrap narrow"><div class="sec-head"><span class="r4">Как пройти</span></div><ol class="steps"><li><span>Скопируйте промпт и отправьте его в чат с ИИ.</span></li><li><span>Выберите вопросы, которые вам задают чаще всего.</span></li><li><span>Расскажите, как вы обычно отвечаете, – даже если неудачно.</span></li><li><span>Сохраните готовые ответы в заметки или шаблоны мессенджера.</span></li></ol></div></section>
+<section style="padding-top:0"><div class="wrap narrow">
+<div class="prompt">
+<div class="prompt-bar"><span class="r4">Промпт</span><button class="btn" data-copy="p7">Скопировать промпт</button></div>
+<div class="fade"><pre class="ptext" id="p7">Мне часто задают одни и те же вопросы, и я каждый раз отвечаю заново и переживаю. Помоги мне собрать готовые ответы – моими словами, тёплые, но с границами.
+
+Как будем работать:
+– сначала вспомни, что ты уже знаешь обо мне из памяти и наших прошлых разговоров: чем я занимаюсь, кто мои клиенты, мои цели. Перескажи в двух-трёх фразах и спроси, всё ли верно. Если памяти нет – просто начни с вопросов;
+– задавай вопросы по одной теме за раз и к каждому давай готовые варианты ответа, которые можно выбрать, плюс «свой вариант». Если можно выбрать несколько – так и скажи;
+– вопросы короткие и простые, без терминов.
+
+Что спросить:
+1. Чем я занимаюсь и как работаю с клиентами.
+2. Какие вопросы мне задают чаще всего. Варианты: «сколько стоит», «дорого», «а есть скидка», «можно перенести», «а если не поможет», «чем вы отличаетесь», «можно подумать», пропали после консультации, своё. Можно несколько.
+3. Мои правила: переносы, отмены, оплата, возвраты – как есть сейчас.
+4. Какой тон мне ближе. Варианты: тепло и мягко, коротко и по делу, с лёгким юмором, своё.
+5. Как я обычно отвечаю на самый неприятный вопрос – попроси написать как есть.
+
+Потом:
+Шаг 1. Для каждого вопроса – готовый ответ на 2–4 строки в моём тоне. Где уместно – вопрос в ответ, чтобы продолжить разговор, а не закончить его.
+Шаг 2. Если у меня нет правила, которое нужно для ответа (например, про переносы), предложи простое правило – решаю я.
+Шаг 3. Спроси, что поправить, и собери всё одной шпаргалкой.
+
+Чего не делать:
+– без давления и манипуляций: никаких «осталось одно место», если это неправда;
+– не оправдывайся за цену в моих ответах;
+– не придумывай правил и условий, которых у меня нет, – предлагай, а решаю я.
+
+Начни.</pre></div>
+<button class="more" data-more="p7">Показать промпт целиком</button>
+<p class="hint">Вставьте промпт в новый чат и отправьте как есть – ИИ сам задаст вопросы. Если у вас ChatGPT с памятью, он вспомнит, что уже знает о вас.</p>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap">
+<div class="sec-head"><span class="r4">Пример</span></div>
+<div class="ex">
+<div class="ex-card"><span class="r4">Что рассказали ИИ</span><p>Фотограф, семейные съёмки. Чаще всего: «дорого», «можно перенести за день», «пришлите все кадры без обработки». Тон – тепло, с юмором. Сейчас на «дорого» начинаю оправдываться и делаю скидку.</p></div>
+<div class="ex-card res"><span class="r4">Что получилось</span><p><b>«Дорого»:</b> «Понимаю, сумма заметная. В неё входит час съёмки, 40 кадров в обработке и альбом в облаке навсегда. Если хотите, расскажу про мини-съёмку на 30 минут – она дешевле, а тёплых кадров в ней не меньше».</p>
+<p><b>«Перенести за день»:</b> «Конечно, жизнь бывает такой! Перенос за сутки – один раз и бесплатно, давайте подберём новую дату».</p>
+<p><b>«Все кадры без обработки»:</b> «Я отдаю только обработанные кадры – это часть моего стиля, и за него вы меня выбрали 🙂 Зато лучших будет 40, а не 4».</p></div>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap narrow"><div class="next"><span class="r4">Дальше</span><p>Через неделю посмотрите, какие ответы вы использовали, а какие переписали, – и попросите ИИ обновить шпаргалку.</p></div></div></section><footer><div class="wrap">
+<p class="r1">Хотите, чтобы ИИ работал на ваше дело каждый день?</p>
+<p>Я помогаю экспертам, которые работают на себя, навести порядок в делах и собрать свою систему с ИИ – от календаря до продаж.</p>
+<a class="btn" href="https://t.me/svetlana_tsyro">Написать в Телеграм</a>
+<p class="foot-meta">Светлана Цыро · methodtsyro.ru</p>
+</div></footer>
+<script>
+function initPage(){
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-copy')).innerText;
+      function ok(){var o=b.textContent;b.textContent='Скопировано';setTimeout(function(){b.textContent=o},1800)}
+      if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok()})}else{fallback(t);ok()}
+    });
+  });
+  document.querySelectorAll('[data-more]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=document.getElementById(b.getAttribute('data-more'));p.classList.toggle('open');p.parentNode.classList.toggle('open');
+      b.textContent=p.classList.contains('open')?'Свернуть':'Показать промпт целиком';
+    });
+  });
+}
+function fallback(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+
+initPage();</script>
+</body>
+</html>
